@@ -17,6 +17,7 @@ ENTRY = (
 def main() -> None:
     text = ENTRY
     assert 1 <= len(text) < 200, f"entry is {len(text)} chars, must be 1-199"
+    assert len(text.encode("utf-8")) < 200, "entry must be under 200 UTF-8 bytes"
     assert text.strip(), "entry must not be only whitespace"
     assert "\n" not in text and "\r" not in text, "entry must be a single line"
     assert text == text.strip(), "entry must not start or end with whitespace"
